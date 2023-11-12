@@ -1,4 +1,7 @@
-const express = require('express');
+import express from 'express'
+import hitler from 'adolf-hitler';
+
+
 const app = express();
 const PORT = 8080
 
@@ -53,6 +56,9 @@ app.get('/hello', (req, res) => {
     res.status(200).send({ text: "you are gay" })
 });
 
+app.get('/yoo', (req, res) => {
+    res.status(200).send({ text: hitler() })
+});
 
 app.get('/tshirts', (req, res) => {
     res.status(200).send(tshirtService.getAll())
@@ -65,7 +71,6 @@ app.delete('/tshirts/:id', (req, res) => {
 
     res.status(204).send({ text: `deleted tshirt with id: ${id}` })
 });
-
 
 
 app.post('/tshirts/:id', (req, res) => {
@@ -84,6 +89,8 @@ app.post('/tshirts/:id', (req, res) => {
         tshirt: `🥋 with your ${logo} and ID of ${id}`
     })
 })
+
+
 
 app.listen(
     PORT,
